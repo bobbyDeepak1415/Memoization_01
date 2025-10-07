@@ -7,12 +7,12 @@ function factorial() {
     if (n <= 1) return 1;
 
     if (cache[n]) {
-      console.log("fetching from cache :");
+      console.log("fetching from cache :",n);
 
       return cache[n];
     }
 
-    console.log("calculating: ");
+    console.log("calculating: ",n);
 
     cache[n] = n * inner(n - 1);
 
