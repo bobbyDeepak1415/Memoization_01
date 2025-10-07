@@ -1,28 +1,37 @@
 // Factorial
 
-function factorial() {
-  let cache = {};
+// function factorial() {
+//   let cache = {};
 
-  return function inner(n) {
-    if (n <= 1) return 1;
+//   return function inner(n) {
+//     if (n <= 1) return 1;
 
-    if (cache[n]) {
-      console.log("fetching from cache :",n);
+//     if (cache[n]) {
+//       console.log("fetching from cache :", n);
 
-      return cache[n];
-    }
+//       return cache[n];
+//     }
 
-    console.log("calculating: ",n);
+//     console.log("calculating: ", n);
 
-    cache[n] = n * inner(n - 1);
+//     cache[n] = n * inner(n - 1);
 
-    return cache[n];
-  };
-  
+//     return cache[n];
+//   };
+// }
+
+// const display = factorial();
+
+// console.log(display(5));
+// console.log(display(5));
+// console.log(display(6));
+
+// /////////////////////////////////////////////////////////////////////////////
+
+function sum(a, b) {
+  return a + b;
 }
 
-const display = factorial();
-
-console.log(display(5));
-console.log(display(5));
-console.log(display(6));
+function product(a, b, c) {
+  return a * b * c;
+}
