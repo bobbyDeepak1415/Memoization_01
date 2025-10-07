@@ -36,38 +36,35 @@ function product(a, b, c) {
   return a * b * c;
 }
 
+function getUniqueId(fn, args) {
+  let uniqueId = [];
 
-function getUniqueId(fn,args){
+  uniqueId = uniqueId.concat(fn.name, args);
 
-    let uniqueId=[]
-    uniqueId=uniqueId.concat(fn.name,args)
-    return uniqueId
-
+  return uniqueId;
 }
 
+function memoise(fn) {
+  let cache = {};
 
-function memoise(fn){
-    let cache={}
+  return function (...args) {
+    let uniqueId = getUniqueId(fn, args);
 
-
-    return function(...args){
-
-        let uniqueId=getUniqueId(fn,args)
-
-        if(cache[uniqueId]){
-            console.log("fetching from cache",uniqueId)
-            return cache[uniqueId]
-        }else{
-            console.log("calculating",uniqueId)
-             cache[uniqueId]=fn(...args)
-             return cache[uniqueId]
-        }
-
+    if (cache[uniqueId]) {
+      console.log("fetching from cache:");
+      return cache[uniqueId];
+    } else {
+      console.log("calculating:");
+      cache[uniqueId] = fn(...args);
+      return cache[uniqueId];
     }
+  };
 }
 
+const display = memoise(sum);
+const display2 = memoise(product);
 
-const display=memoise(product)
-
-console.log(display(4,2,3))
-console.log(display(4,2,3))
+console.log(display(4, 8));
+console.log(display(4, 8));
+console.log(display2(2,4, 8));
+console.log(display2(2,4, 8));
