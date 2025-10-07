@@ -35,3 +35,32 @@ function sum(a, b) {
 function product(a, b, c) {
   return a * b * c;
 }
+
+
+
+
+function factorial(){
+
+    let cache={}
+
+    return function inner(n){
+if(n<=1) return 1
+
+if(cache[n]){
+    console.log("fetching from cache:")
+    
+    return cache[n]
+} 
+
+console.log("calculating :")
+cache[n]=n*inner(n-1)
+return cache[n]
+    }
+
+}
+
+
+const display=factorial()
+
+console.log(display(9))
+console.log(display(9))
