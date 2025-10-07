@@ -37,30 +37,37 @@ function product(a, b, c) {
 }
 
 
+function getUniqueId(fn,args){
 
-
-function factorial(){
-
-    let cache={}
-
-    return function inner(n){
-if(n<=1) return 1
-
-if(cache[n]){
-    console.log("fetching from cache:")
-    
-    return cache[n]
-} 
-
-console.log("calculating :")
-cache[n]=n*inner(n-1)
-return cache[n]
-    }
+    let uniqueId=[]
+    uniqueId=uniqueId.concat(fn.name,args)
+    return uniqueId
 
 }
 
 
-const display=factorial()
+function memoise(fn){
+    let cache={}
 
-console.log(display(9))
-console.log(display(9))
+
+    return function(...args){
+
+        let uniqueId=getUniqueId(fn,args)
+
+        if(cache[uniqueId]){
+            console.log("fetching from cache",uniqueId)
+            return cache[uniqueId]
+        }else{
+            console.log("calculating",uniqueId)
+             cache[uniqueId]=fn(...args)
+             return cache[uniqueId]
+        }
+
+    }
+}
+
+
+const display=memoise(product)
+
+console.log(display(4,2,3))
+console.log(display(4,2,3))
