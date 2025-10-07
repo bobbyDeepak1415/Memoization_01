@@ -35,24 +35,3 @@ function sum(a, b) {
 function product(a, b, c) {
   return a * b * c;
 }
-
-
-function getUniqueId(){
-    
-}
-
-
-function memoise(fn){
-    let cache={}
-
-    return function(...args){
-
-        let uniqueId=getUniqueId()
-
-    }
-}
-
-
-const display=memoise(sum)
-
-console.log(display(3,4))
