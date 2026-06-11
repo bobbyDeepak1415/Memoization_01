@@ -1,12 +1,9 @@
 lifecycle
 
-constructor-useState
-componentDidMount-useEffect(()=>{},[])
-componentDidUpdate-useEffect(()=>{},[dependency])
-componentWillUnMount-useEffect(()=>{()=>cleanUp function},[dependency])
 
-shouldComponentUnMount-React.Memo,UseCallback,useMemo
+shouldComponentUpdate-React.memo,useCallback,useMemmo
+componentWillUnmount-clean up func inside useEffect
 
-getDerivedStateFromProps-handled in useEffect by passing props
+getDerivedStatefromprops- usually handled using props directly or in useEffect
 
-componentDidCatch-error Boundary (class component)
+component
