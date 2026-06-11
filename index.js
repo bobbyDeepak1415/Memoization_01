@@ -66,5 +66,5 @@ const display2 = memoise(product);
 
 console.log(display(4, 8));
 console.log(display(4, 8));
-console.log(display2(2,4, 8));
-console.log(display2(2,4, 8));
+console.log(display2(2, 4, 8));
+console.log(display2(2, 4, 8));
